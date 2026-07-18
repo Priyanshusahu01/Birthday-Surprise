@@ -1,0 +1,1739 @@
+/* ==========================================================
+   GLOBAL RESET
+========================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+
+    overflow-x:hidden;
+
+    background:#090014;
+
+    color:white;
+
+}
+
+/* ==========================================================
+   VARIABLES
+========================================================== */
+
+:root{
+
+    --pink:#ff4fa3;
+    --lightPink:#ff87c5;
+    --purple:#8b5cf6;
+    --dark:#090014;
+    --white:#ffffff;
+
+    --glass:
+    rgba(255,255,255,.12);
+
+    --shadow:
+    0 15px 45px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
+   BACKGROUND
+========================================================== */
+
+body{
+
+    background:
+
+    radial-gradient(circle at top,
+    #34124b,
+    #160021 40%,
+    #090014 90%);
+
+    min-height:100vh;
+
+}
+
+/* ==========================================================
+   COMMON SECTION
+========================================================== */
+
+section{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+}
+
+/* ==========================================================
+   LOADER
+========================================================== */
+
+#loader{
+
+    position:fixed;
+
+    inset:0;
+
+    background:#090014;
+
+    z-index:9999;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Heart */
+
+.loader-heart{
+
+    font-size:70px;
+
+    animation:heartbeat 1s infinite;
+
+}
+
+/* Heading */
+
+#loader h2{
+
+    margin-top:25px;
+
+    font-size:28px;
+
+    font-weight:600;
+
+    color:white;
+
+}
+
+/* Progress Bar */
+
+.loading-bar{
+
+    width:320px;
+
+    height:8px;
+
+    background:#2d2d40;
+
+    border-radius:50px;
+
+    overflow:hidden;
+
+    margin-top:35px;
+
+}
+
+.loading-bar span{
+
+    display:block;
+
+    width:0;
+
+    height:100%;
+
+    background:linear-gradient(
+    90deg,
+    #ff4fa3,
+    #ff87c5);
+
+    animation:loading 3s linear forwards;
+
+}
+
+/* ==========================================================
+   ANIMATIONS
+========================================================== */
+
+@keyframes heartbeat{
+
+0%{
+
+transform:scale(1);
+
+}
+
+25%{
+
+transform:scale(1.18);
+
+}
+
+50%{
+
+transform:scale(.95);
+
+}
+
+75%{
+
+transform:scale(1.22);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes loading{
+
+0%{
+
+width:0;
+
+}
+
+100%{
+
+width:100%;
+
+}
+
+}
+
+/* ==========================================================
+   WELCOME SCREEN
+========================================================== */
+
+#welcome{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(22,0,33,.95),
+    rgba(9,0,20,.98));
+
+}
+
+/* Blur Background */
+
+#welcome::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:900px;
+
+    height:900px;
+
+    background:radial-gradient(
+    circle,
+    rgba(255,79,163,.25),
+    transparent 70%);
+
+    filter:blur(80px);
+
+    animation:floatGlow 10s infinite alternate;
+
+}
+
+/* Glass Card */
+
+.welcome-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:90%;
+
+    max-width:650px;
+
+    padding:60px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+}
+
+/* Heading */
+
+.welcome-content h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:72px;
+
+    color:#ffffff;
+
+    margin-bottom:20px;
+
+    line-height:1.2;
+
+    text-shadow:
+    0 0 15px rgba(255,79,163,.6);
+
+}
+
+/* Subtitle */
+
+.welcome-content p{
+
+    font-size:20px;
+
+    color:#f3d9ea;
+
+    margin-bottom:45px;
+
+    letter-spacing:1px;
+
+}
+
+/* Button */
+
+#openBtn{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    padding:18px 50px;
+
+    border-radius:60px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4fa3,
+    #ff87c5);
+
+    transition:.35s;
+
+    box-shadow:
+    0 10px 30px rgba(255,79,163,.4);
+
+}
+
+#openBtn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 18px 45px rgba(255,79,163,.55);
+
+}
+
+#openBtn:active{
+
+    transform:scale(.96);
+
+}
+
+/* Floating Glow */
+
+@keyframes floatGlow{
+
+0%{
+
+transform:
+translate(-80px,-60px);
+
+}
+
+50%{
+
+transform:
+translate(80px,60px);
+
+}
+
+100%{
+
+transform:
+translate(-50px,40px);
+
+}
+
+}/* ==========================================================
+   WELCOME SCREEN
+========================================================== */
+
+#welcome{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:9000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    rgba(22,0,33,.95),
+    rgba(9,0,20,.98));
+
+}
+
+/* Blur Background */
+
+#welcome::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:900px;
+
+    height:900px;
+
+    background:radial-gradient(
+    circle,
+    rgba(255,79,163,.25),
+    transparent 70%);
+
+    filter:blur(80px);
+
+    animation:floatGlow 10s infinite alternate;
+
+}
+
+/* Glass Card */
+
+.welcome-content{
+
+    position:relative;
+
+    z-index:2;
+
+    width:90%;
+
+    max-width:650px;
+
+    padding:60px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.45);
+
+}
+
+/* Heading */
+
+.welcome-content h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:72px;
+
+    color:#ffffff;
+
+    margin-bottom:20px;
+
+    line-height:1.2;
+
+    text-shadow:
+    0 0 15px rgba(255,79,163,.6);
+
+}
+
+/* Subtitle */
+
+.welcome-content p{
+
+    font-size:20px;
+
+    color:#f3d9ea;
+
+    margin-bottom:45px;
+
+    letter-spacing:1px;
+
+}
+
+/* Button */
+
+#openBtn{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    padding:18px 50px;
+
+    border-radius:60px;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4fa3,
+    #ff87c5);
+
+    transition:.35s;
+
+    box-shadow:
+    0 10px 30px rgba(255,79,163,.4);
+
+}
+
+#openBtn:hover{
+
+    transform:
+    translateY(-5px)
+    scale(1.05);
+
+    box-shadow:
+    0 18px 45px rgba(255,79,163,.55);
+
+}
+
+#openBtn:active{
+
+    transform:scale(.96);
+
+}
+
+/* Floating Glow */
+
+@keyframes floatGlow{
+
+0%{
+
+transform:
+translate(-80px,-60px);
+
+}
+
+50%{
+
+transform:
+translate(80px,60px);
+
+}
+
+100%{
+
+transform:
+translate(-50px,40px);
+
+}
+
+}
+
+/* ==========================================================
+   HERO SECTION
+========================================================== */
+
+#hero{
+
+    display:none;
+
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+
+    overflow:hidden;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+    rgba(10,0,20,.55),
+    rgba(10,0,20,.75)
+    ),
+    url("assets/images/hero-bg.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+}
+
+/* Dark Overlay */
+
+.hero-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(255,79,163,.10),
+    rgba(0,0,0,.55)
+    );
+
+}
+
+/* Main Content */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:90%;
+    max-width:900px;
+
+    text-align:center;
+
+    color:white;
+
+}
+
+/* Main Heading */
+
+.hero-content h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:95px;
+
+    color:white;
+
+    margin-bottom:10px;
+
+    text-shadow:
+    0 0 18px rgba(255,79,163,.7);
+
+}
+
+/* Name */
+
+.hero-content h2{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    color:#ff87c5;
+
+    margin-bottom:25px;
+
+    letter-spacing:2px;
+
+}
+
+/* Paragraph */
+
+.hero-content p{
+
+    max-width:700px;
+
+    margin:auto;
+
+    font-size:21px;
+
+    line-height:1.8;
+
+    color:#f7d8e8;
+
+    margin-bottom:50px;
+
+}
+
+/* Continue Button */
+
+#continueBtn{
+
+    padding:18px 55px;
+
+    border:none;
+
+    border-radius:60px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:white;
+
+    background:
+    linear-gradient(
+    135deg,
+    #ff4fa3,
+    #ff87c5);
+
+    transition:.35s;
+
+    box-shadow:
+    0 15px 35px rgba(255,79,163,.4);
+
+}
+
+#continueBtn:hover{
+
+    transform:
+    translateY(-6px)
+    scale(1.05);
+
+    box-shadow:
+    0 22px 45px rgba(255,79,163,.55);
+
+}
+
+#continueBtn:active{
+
+    transform:scale(.96);
+
+}
+
+/* Floating Hero Glow */
+
+#hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+
+    height:500px;
+
+    border-radius:50%;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(255,79,163,.25),
+    transparent 70%);
+
+    top:-120px;
+    right:-100px;
+
+    filter:blur(80px);
+
+    animation:heroGlow 8s infinite alternate;
+
+}
+
+/* Hero Animation */
+
+@keyframes heroGlow{
+
+0%{
+
+transform:
+translateY(0)
+scale(1);
+
+}
+
+100%{
+
+transform:
+translateY(80px)
+scale(1.25);
+
+}
+
+}
+
+/* ==========================================================
+   COMMON BUTTON STYLES
+========================================================== */
+
+button{
+
+    font-family:'Poppins',sans-serif;
+
+    transition:
+    transform .35s,
+    box-shadow .35s,
+    background .35s;
+
+}
+
+button:hover{
+
+    cursor:pointer;
+
+}
+
+button:focus{
+
+    outline:none;
+
+}
+
+/* ==========================================================
+   TEXT SELECTION
+========================================================== */
+
+::selection{
+
+    background:#ff4fa3;
+    color:white;
+
+}
+
+::-moz-selection{
+
+    background:#ff4fa3;
+    color:white;
+
+}
+
+/* ==========================================================
+   SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#12001e;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff4fa3;
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#ff87c5;
+
+}
+
+/* ==========================================================
+   GLASS CARD
+========================================================== */
+
+.glass{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================================
+   FADE HELPERS
+========================================================== */
+
+.fade-in{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:1s;
+
+}
+
+.fade-in.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================================================
+   FLOATING DECORATIONS
+========================================================== */
+
+.floating{
+
+    position:absolute;
+
+    animation:floating 5s ease-in-out infinite;
+
+}
+
+@keyframes floating{
+
+0%{
+
+transform:
+translateY(0px);
+
+}
+
+50%{
+
+transform:
+translateY(-20px);
+
+}
+
+100%{
+
+transform:
+translateY(0px);
+
+}
+
+}
+
+/* ==========================================================
+   PULSE
+========================================================== */
+
+.pulse{
+
+    animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.08);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/* ==========================================================
+   ROTATE
+========================================================== */
+
+.rotate{
+
+    animation:rotate 12s linear infinite;
+
+}
+
+@keyframes rotate{
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+/* ==========================================================
+   SCALE IN
+========================================================== */
+
+.scale-in{
+
+    animation:scaleIn .8s ease;
+
+}
+
+@keyframes scaleIn{
+
+0%{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+100%{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+/* ==========================================================
+   UTILITIES
+========================================================== */
+
+.hidden{
+
+    display:none !important;
+
+}
+
+.center{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.text-center{
+
+    text-align:center;
+
+}
+
+/* ==========================================================
+   END OF STYLE.CSS
+========================================================== */
+
+/* ==========================================================
+   LOVE LETTER
+========================================================== */
+
+#loveLetter{
+
+    display:none;
+
+    width:100%;
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle,#3b1153,#170022,#090014);
+
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+/* Scene */
+
+.letter-scene{
+
+    position:relative;
+
+    width:360px;
+
+    height:560px;
+
+}
+
+/* ======================
+      LETTER
+====================== */
+
+#letter{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:110px;
+
+   
+
+    width:340px;
+
+    height:560px;
+
+
+
+    background:linear-gradient(
+     180deg,
+    #f3e8c8 0%,
+    #ebddb8 45%,
+    #e4d2aa 100%
+    );
+
+    border-radius:18px;
+
+    transform:
+    translateX(-50%)
+    translateY(280px);
+
+    opacity:0;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.35);
+
+    z-index:1;
+
+    overflow:hidden;
+
+}
+
+.letter-content{
+
+    height:100%;
+
+    padding:35px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    text-align:center;
+
+    opacity:0;
+
+}
+
+.letter-content h2{
+
+    font-family:"Great Vibes",cursive;
+
+    font-size:48px;
+
+    color:#ff4f97;
+
+}
+
+.letter-content p{
+
+    font-size:17px;
+
+    line-height:1.9;
+
+    color:#444;
+
+}
+
+#memoryBtn{
+
+    align-self:center;
+
+}
+
+/* ======================
+      ENVELOPE
+====================== */
+
+#envelope{
+
+    position:absolute;
+
+    left:50%;
+
+    bottom:40px;
+
+    transform:translateX(-50%);
+
+    width:280px;
+
+    height:170px;
+
+    cursor:pointer;
+
+    z-index:5;
+
+}
+
+/* Bottom */
+
+#envelope .body{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#ffc9db;
+
+    border-radius:10px;
+
+}
+
+/* Top flap */
+
+#envelope .flap{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#ffb3cc;
+
+    clip-path:polygon(0 0,50% 60%,100% 0);
+
+    transform-origin:top;
+
+    z-index:10;
+
+}
+
+/* Hover */
+
+#envelope:hover{
+
+    transform:
+    translateX(-50%)
+    translateY(-6px);
+
+}
+
+/* ==========================================================
+   MEMORY GALLERY
+========================================================== */
+
+#gallery{
+
+    display:none;
+
+    width:100%;
+
+    min-height:100vh;
+
+    padding:80px 20px;
+
+    box-sizing:border-box;
+
+    background:
+    linear-gradient(
+    180deg,
+    #12001d,
+    #230033,
+    #12001d);
+
+}
+
+/* Heading */
+
+.gallery-heading{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+.gallery-heading h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:56px;
+
+    color:#ff8cc8;
+
+    margin-bottom:12px;
+
+}
+
+.gallery-heading p{
+
+    color:#ddd;
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+/* Gallery */
+
+.gallery-wrapper{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:30px;
+
+    align-items:center;
+
+}
+
+/* Card */
+
+.photo-card{
+
+    width:100%;
+
+    max-width:380px;
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    background:#ffffff15;
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+
+    0 20px 40px rgba(0,0,0,.35);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.photo-card:hover{
+
+    transform:
+
+    translateY(-8px)
+
+    scale(1.02);
+
+}
+
+/* Image */
+
+.photo-card img{
+
+    width:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    aspect-ratio:4/5;
+
+}
+
+/* Continue Button */
+
+#nextSection{
+
+    display:block;
+
+    margin:60px auto 0;
+
+    padding:16px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #ff5fa2,
+    #ff88c5);
+
+    transition:.35s;
+
+}
+
+#nextSection:hover{
+
+    transform:
+
+    scale(1.05);
+
+}
+
+.gallerySwiper{
+
+    width:100%;
+
+    max-width:420px;
+
+    margin:auto;
+
+}
+
+.swiper-slide{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+/* ==========================================================
+   PHOTO VIEWER
+========================================================== */
+
+#photoViewer{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.92);
+
+    z-index:9999;
+
+}
+
+#viewerImage{
+
+    width:90%;
+
+    max-width:450px;
+
+    border-radius:18px;
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.45);
+
+}
+
+#closeViewer{
+
+    position:absolute;
+
+    top:25px;
+
+    right:30px;
+
+    color:white;
+
+    font-size:42px;
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+/* ==========================================================
+   CELEBRATION
+========================================================== */
+
+#celebration{
+
+    display:none;
+
+    min-height:100vh;
+
+    padding:60px 20px;
+
+    background:
+    linear-gradient(
+    180deg,
+    #180022,
+    #2b003d,
+    #180022);
+
+    text-align:center;
+
+}
+
+.celebration-content{
+
+    max-width:420px;
+
+    margin:auto;
+
+}
+
+.celebration-content h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:60px;
+
+    color:#ff9ad5;
+
+    margin-bottom:10px;
+
+}
+
+.celebration-content p{
+
+    color:#eee;
+
+    margin-bottom:40px;
+
+}
+
+#cake{
+
+    width:260px;
+
+    margin:auto;
+
+    position:relative;
+
+}
+
+.cake-top{
+
+    display:flex;
+
+    justify-content:space-around;
+
+    margin-bottom:-5px;
+
+}
+
+.candle{
+
+    width:10px;
+
+    height:55px;
+
+    background:white;
+
+    position:relative;
+
+}
+
+.flame{
+
+    width:18px;
+
+    height:18px;
+
+    background:gold;
+
+    border-radius:50%;
+
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    top:-16px;
+
+    animation:flicker .4s infinite alternate;
+
+}
+
+.cake-layer{
+
+    height:60px;
+
+    border-radius:10px;
+
+    margin:6px 0;
+
+}
+
+.top-layer{
+
+    background:#ffb7d8;
+
+}
+
+.middle-layer{
+
+    background:#ff8fc3;
+
+}
+
+.bottom-layer{
+
+    background:#ff6cae;
+
+}
+
+@keyframes flicker{
+
+    from{
+
+        transform:translateX(-50%) scale(1);
+
+    }
+
+    to{
+
+        transform:translateX(-50%) scale(1.15);
+
+    }
+
+}
+
+#blowBtn{
+
+    margin-top:40px;
+
+    padding:16px 36px;
+
+    border:none;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #ff5fa2,
+    #ff89c5);
+
+}
+
+/* ==========================================================
+   FINAL MESSAGE
+========================================================== */
+
+#finalMessage{
+
+    display:none;
+
+    margin-top:50px;
+
+    text-align:center;
+
+}
+
+#finalMessage h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:64px;
+
+    color:#ffd54f;
+
+    margin-bottom:20px;
+
+}
+
+#finalMessage p{
+
+    color:white;
+
+    font-size:20px;
+
+    line-height:1.8;
+
+    max-width:450px;
+
+    margin:auto;
+
+}
+
+#replayBtn{
+
+    margin-top:40px;
+
+    padding:16px 38px;
+
+    border:none;
+
+    border-radius:40px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #ff5fa2,
+    #ff88c5);
+
+}
