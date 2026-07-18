@@ -1111,6 +1111,8 @@ transform:scale(1);
 
     height:560px;
 
+    perspective:1200px;
+
 }
 
 /* ======================
@@ -1223,6 +1225,8 @@ transform:scale(1);
 
     z-index:5;
 
+    transform-style:preserve-3d;
+
 }
 
 /* Bottom */
@@ -1254,6 +1258,10 @@ transform:scale(1);
     transform-origin:top;
 
     z-index:10;
+
+    backface-visibility:hidden;
+    
+    transform-style:preserve-3d;
 
 }
 

@@ -141,22 +141,40 @@ envelope.addEventListener("click", () => {
 
     const tl = gsap.timeline();
 
-    // Open flap
+    // Envelope wiggle before opening
+    tl.to(envelope, {
+        rotation: -3,
+        scale: 0.97,
+        duration: 0.15
+    })
+
+    .to(envelope, {
+        rotation: 3,
+        duration: 0.15
+    })
+
+    .to(envelope, {
+        rotation: 0,
+        scale: 1,
+        duration: 0.15
+    });
+
+    // Open flap slowly
     tl.to(flap, {
 
-        rotateX: -180,
-        duration: 0.6,
+        rotateX: -160,
+        duration: 0.8,
         ease: "power2.inOut"
 
     });
 
-    // Letter rises
+    // Letter slowly slides out
     tl.to(letter, {
 
         opacity: 1,
-        y: -330,
-        duration: 1,
-        ease: "power3.out"
+        y: -360,
+        duration: 1.4,
+        ease: "power4.out"
 
     });
 
@@ -169,21 +187,27 @@ envelope.addEventListener("click", () => {
 
     });
 
-    // Letter moves to centre
+    // Letter gently settles into the center
     tl.to(letter, {
 
-        y: -180,
-        scale: 1.05,
-        duration: 0.5
+        y: -190,
+        scale: 1.03,
+        duration: 0.8,
+        ease: "power2.inOut"
 
     });
 
     // Show content
-    tl.to(letterContent, {
-
-        opacity: 1,
-        duration: 0.8
-
+    tl.fromTo(letterContent,
+    {
+        opacity:0,
+        y:20
+    },
+    {
+        opacity:1,
+        y:0,
+        duration:1,
+        ease:"power2.out"
     });
 
 });
