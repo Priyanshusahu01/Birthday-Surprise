@@ -1291,7 +1291,7 @@ transform:scale(1);
 
     min-height:100vh;
 
-    padding:5px 20px 80px;
+    padding:0px 20px 80px;
 
     box-sizing:border-box;
 
@@ -1310,7 +1310,7 @@ transform:scale(1);
 
     text-align:center;
 
-    margin-bottom:50px;
+    margin-bottom:10px;
 
 }
 
@@ -1322,7 +1322,7 @@ transform:scale(1);
 
     color:#ff8cc8;
 
-    margin-bottom:12px;
+    margin-bottom:8px;
 
 }
 
@@ -1333,6 +1333,8 @@ transform:scale(1);
     font-size:18px;
 
     line-height:1.8;
+
+    margin-bottom: 10px;
 
 }
 
