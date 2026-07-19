@@ -342,6 +342,8 @@ const nextSection = document.getElementById("nextSection");
 
 nextSection.addEventListener("click",()=>{
 
+
+
     gsap.to(gallery,{
 
         opacity:0,
